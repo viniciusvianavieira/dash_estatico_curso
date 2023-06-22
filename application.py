@@ -1,6 +1,5 @@
 from dash import Dash, html, dcc, dash_table, callback
 from dash.dependencies import Input, Output
-from web_scraping_brazil_journal import wb_brazil_journal
 from grafico_media_movel import graph_moving_average
 from grafico_di import scrap_di
 import pandas as pd
@@ -18,8 +17,6 @@ opcoes_empresas.append("IBOV")
 
 grafico_media_m = graph_moving_average()
 
-ws_bj = wb_brazil_journal()
-noticias = ws_bj.pegando_noticias()
 
 inflacao = pegando_inflacao_bc()
 fig_infla = inflacao.grafico_inflacao()
@@ -270,48 +267,6 @@ application.layout = html.Main(children=[
 
 
                                             html.Div(children=[
-
-                                                html.Div(children=[
-
-                                                            html.Img(src = 'assets/bj.png'),
-                                                            html.B(children="Últimas notícias", style={"font-size": "20px", "color": "#F2F4F8"}),
-                                                            html.Span(children="Brazil Journal", style={"font-size": "20px", "color": "#F2F4F8"})
-
-                                                ], style = {"display": "flex", 'align-items': 'center', "gap": "15px"}),
-
-
-                                                html.Div(children=[
-                                                    
-                                                            html.A(children=[
-
-                                                                html.P(children=noticias['subtopico'].iloc[0], className='brazil-journal-manchete'),
-                                                                html.H3(children=noticias['manchete'].iloc[0], className='brazil-journal-h3-noticias')
-
-                                                            ], href= noticias['link'].iloc[0], target= "_blank", className= 'brazil-journal-links'),
-
-                                                            html.A(children=[
-
-                                                                html.P(children=noticias['subtopico'].iloc[1], className='brazil-journal-manchete'),
-                                                                html.H3(children=noticias['manchete'].iloc[1], className='brazil-journal-h3-noticias')
-
-                                                            ], href= noticias['link'].iloc[1], target= "_blank", className= 'brazil-journal-links'),
-
-                                                            html.A(children=[
-
-                                                                html.P(children=noticias['subtopico'].iloc[2], className='brazil-journal-manchete'),
-                                                                html.H3(children=noticias['manchete'].iloc[2], className= 'brazil-journal-h3-noticias')
-
-                                                            ], href= noticias['link'].iloc[2], target= "_blank", className= 'brazil-journal-links'),
-
-                                                            html.A(children=[
-
-                                                                html.P(children=noticias['subtopico'].iloc[3], className='brazil-journal-manchete'),
-                                                                html.H3(children=noticias['manchete'].iloc[3],  className='brazil-journal-h3-noticias')
-
-                                                            ], href= noticias['link'].iloc[3], target= "_blank", className= 'brazil-journal-links')
-
-
-                                                ], style = {'display': 'flex', 'flex-wrap': "wrap", 'gap': '44px', 'margin-top': "32px"})
 
                                             ], style = {"margin-top": "25px"})
                                            
