@@ -4,7 +4,7 @@ from grafico_media_movel import graph_moving_average
 from grafico_di import scrap_di
 import pandas as pd
 from grafico_inflacao import pegando_inflacao_bc
-from waitress import serve
+
 
 opcoes_empresas = ['RRRP3', 'ALSO3', 'ALPA4', 'ABEV3', 'ARZZ3', 'ASAI3', 'AZUL4', 'B3SA3', 'BPAN4', 'BBSE3', 'BBDC3', 'BBDC4', 'BRAP4', 
                     'BBAS3', 'BRKM5', 'BRFS3', 'BPAC11', 'CRFB3', 'CCRO3', 'CMIG4', 'CIEL3', 'COGN3', 'CPLE6', 'CSAN3', 'CPFE3', 'CMIN3', 
@@ -302,6 +302,5 @@ def update_options(value):
 
 # Run the app
 if __name__ == '__main__':
-    
-    serve(app=application,port=80)
+    application_server.run(debug=False,port=80,host="0.0.0.0")
  
