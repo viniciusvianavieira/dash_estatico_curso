@@ -302,5 +302,5 @@ def update_options(value):
 
 # Run the app
 if __name__ == '__main__':
-    application_server.run(debug=False,port=80,host="0.0.0.0")
+    application_server.run(debug=True,port=80,host="0.0.0.0")
  
